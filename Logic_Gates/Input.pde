@@ -1,6 +1,9 @@
-void mouseClicked() {
-  for (Draggable obj: objects) {
-    obj.checkDragToggle();
+void mousePressed() {
+  for (GameObject obj: objects) {
+    if (obj instanceof Draggable) {
+      Draggable d = (Draggable) obj;
+      d.checkDragToggle();
+    }
   }
   
 }

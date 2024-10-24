@@ -1,12 +1,10 @@
-class Draggable {
-  int x, y;
+class Draggable extends GameObject {
   int w, h;
   int offsetX, offsetY;
   boolean dragging;
   
-  Draggable(int _x, int _y, int _w, int _h) {
-    x = _x;
-    y = _y;
+  Draggable(int x, int y, int _w, int _h) {
+    super(x, y);
     w = _w;
     h = _h;
     dragging = false;
@@ -32,7 +30,4 @@ class Draggable {
       y = mouseY - offsetY;
     }
   }
-  
-  void update(){};
-  void display(){};
 }
