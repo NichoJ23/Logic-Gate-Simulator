@@ -3,6 +3,7 @@ enum GateTypes {AND, OR, NOT};
 class LogicGate extends Draggable {
   GateTypes type;
   Node[] inputs;
+  Node output;
   
   LogicGate(int x, int y, int w, int h, GateTypes _type) {
     super(x, y, w, h);
@@ -52,11 +53,10 @@ class LogicGate extends Draggable {
     
     inputs = new Node[numInputs];
     for (int i = 0; i < numInputs; i++) {
-      Node n = new Node(w/2, -h + h/(1 + numInputs)*(i+1), this);
+      Node n = new Node(-w/2, -h*3/4 + h/(numInputs)*(i+1), this, NodeTypes.RECIEVING);
       inputs[i] = n;
-      
-      objects.add(n);
     }
     
+    output = new Node(w/2, 0, this, NodeTypes.SENDING);
   }
 }
